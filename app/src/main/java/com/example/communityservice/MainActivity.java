@@ -1,38 +1,38 @@
 package com.example.communityservice;
 
 import android.os.Bundle;
-import android.app.Activity;
 import android.util.Log;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
 
+import androidx.annotation.NonNull;
 import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.communityservice.ui.main.SectionsPagerAdapter;
 
 public class MainActivity extends AppCompatActivity {
-    String msg = "Android : ";
 
     /** Called when the activity is first created. */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Log.d(msg, "The onCreate() event");
         SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager());
         ViewPager viewPager = findViewById(R.id.view_pager);
         viewPager.setAdapter(sectionsPagerAdapter);
         TabLayout tabs = findViewById(R.id.tabs);
         tabs.setupWithViewPager(viewPager);
-        /*FloatingActionButton fab = findViewById(R.id.fab);
 
+        FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -40,46 +40,40 @@ public class MainActivity extends AppCompatActivity {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
-        }); */
+        });
+    }
+    /*
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        super.onCreateOptionsMenu(menu);
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.top_menu, menu);
+
+        return true;
     }
 
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.item1:
+                Toast.makeText(this, "Item 1 selected", Toast.LENGTH_SHORT).show();
+                return true;
+            case R.id.item2:
+                Toast.makeText(this, "Item 2 selected", Toast.LENGTH_SHORT).show();
+                return true;
+            case R.id.item3:
+                Toast.makeText(this, "Item 3 selected", Toast.LENGTH_SHORT).show();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+    */
     /** Called when user taps the + button */
     public void addOrg(View view) {
         // Do something
+        Toast.makeText(this, "Hi", Toast.LENGTH_SHORT).show();
     }
 
-    /** Called when the activity is about to become visible. */
-    @Override
-    protected void onStart() {
-        super.onStart();
-        Log.d(msg, "The onStart() event");
-    }
 
-    /** Called when the activity has become visible. */
-    @Override
-    protected void onResume() {
-        super.onResume();
-        Log.d(msg, "The onResume() event");
-    }
 
-    /** Called when another activity is taking focus. */
-    @Override
-    protected void onPause() {
-        super.onPause();
-        Log.d(msg, "The onPause() event");
-    }
-
-    /** Called when the activity is no longer visible. */
-    @Override
-    protected void onStop() {
-        super.onStop();
-        Log.d(msg, "The onStop() event");
-    }
-
-    /** Called just before the activity is destroyed. */
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        Log.d(msg, "The onDestroy() event");
-    }
 }
